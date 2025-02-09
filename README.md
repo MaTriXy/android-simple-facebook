@@ -1,5 +1,11 @@
-android-simple-facebook
+[Deprecated] android-simple-facebook
 =======================
+
+#### Currently this lib was tested and works with graph api `v2.3` and below. For now, I don't have much time to maintain this library anymore. Beside this, Facebook made a lot of improvements on their side. Please, use their pure Android SDK. 
+
+#### :mega: Thanks for everyone who was involved in making this project better over 3 years. A lot of apps used this project, which I am very proud of. Love you all :heart:
+
+-----
 
 Simple Facebook SDK for Android which wraps original [**Facebook SDK**](https://github.com/facebook/facebook-android-sdk). <br>
 
@@ -14,9 +20,12 @@ Since my feeling was that the usage of Facebook SDK was too complicated for simp
 <img src="https://assets-cdn.github.com/favicon.ico" height="16" width="16"/> Issues: [`here`](https://github.com/sromku/android-simple-facebook/issues)
 
 ## Latest Release
+
+[ ![Download](https://api.bintray.com/packages/sromku/maven/simple-fb/images/download.svg) ](https://bintray.com/sromku/maven/simple-fb/_latestVersion)
+
 ``` gradle
 dependencies {
-    compile 'com.sromku:simple-fb:4.0.6'
+    compile 'com.sromku:simple-fb:4.1.1'
 }
 ```
 
@@ -76,6 +85,7 @@ The sample app includes examples for all actions. Check out this very short [wik
 	- [Get posts](https://github.com/sromku/android-simple-facebook/wiki/Get-posts)
 	- [Get profile](https://github.com/sromku/android-simple-facebook/wiki/Get-profile)
 	- [Get scores](https://github.com/sromku/android-simple-facebook/wiki/Get-scores)
+	- [Get tagged places](https://github.com/sromku/android-simple-facebook/wiki/Get-tagged-places)
 	- [Get television](https://github.com/sromku/android-simple-facebook/wiki/Get-television)
 	- [Get videos](https://github.com/sromku/android-simple-facebook/wiki/Get-videos)
 
@@ -95,8 +105,9 @@ The sample app includes examples for all actions. Check out this very short [wik
 	- [LikeView](https://github.com/sromku/android-simple-facebook/wiki/LikeView)
 
 *And,*
-* Based on latest Facebook SDK and Graph API v2.3
-* Permission strings are predefined
+* Based on latest Facebook SDK and Graph API.
+* Supports oldest Graph API versions.
+* Permission strings are predefined.
 * No need to use `LoginButton` view for being able to login/logout. You can use any `View`.
 * No need to care for correct login with `READ` and `PUBLISH` permissions. Just mention the permissions you need and this library will care for the rest.
 * Open graph support
@@ -119,6 +130,8 @@ Everything is explained in [**wiki**](https://github.com/sromku/android-simple-f
 - [bperin](https://github.com/bperin)
 - [Norbert Schuler](https://github.com/norbertschuler)
 - [Chang Yu-heng](https://github.com/changyuheng)
+- [Samed Ozdemir](https://github.com/xsorifc28)
+- [Filipe de Lima Brito](https://github.com/filipedelimabrito)
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-android--simple--facebook-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/949)
 

@@ -10,20 +10,22 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.sromku.simple.fb.SimpleFacebook;
-import com.sromku.simple.fb.entities.Profile;
+import com.sromku.simple.fb.actions.Cursor;
+import com.sromku.simple.fb.entities.PlaceTag;
 import com.sromku.simple.fb.example.R;
-import com.sromku.simple.fb.example.utils.Utils;
-import com.sromku.simple.fb.listeners.OnProfileListener;
-import com.sromku.simple.fb.utils.Attributes;
-import com.sromku.simple.fb.utils.PictureAttributes;
+import com.sromku.simple.fb.listeners.OnTaggedPlacesListener;
+import com.sromku.simple.fb.utils.Utils;
 
-public class GetProfileFragment extends BaseFragment {
+import java.util.List;
 
-    private final static String EXAMPLE = "Get profile";
+public class GetTaggedPlacesFragment extends BaseFragment{
+
+    private final static String EXAMPLE = "Get tagged places";
 
     private TextView mResult;
     private Button mGetButton;
     private TextView mMore;
+    private String mAllPages = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,23 +41,13 @@ public class GetProfileFragment extends BaseFragment {
         mMore.setPaintFlags(mMore.getPaint().getFlags() | Paint.UNDERLINE_TEXT_FLAG);
         mGetButton = (Button) view.findViewById(R.id.button);
         mGetButton.setText(EXAMPLE);
-        disableLoadMore();
         mGetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mAllPages = "";
+                mResult.setText(mAllPages);
 
-                PictureAttributes pictureAttributes = Attributes.createPictureAttributes();
-                pictureAttributes.setHeight(500);
-                pictureAttributes.setWidth(500);
-                pictureAttributes.setType(PictureAttributes.PictureType.SQUARE);
-                Profile.Properties properties = new Profile.Properties.Builder()
-                        .add(Profile.Properties.PICTURE, pictureAttributes)
-                        .add(Profile.Properties.FIRST_NAME)
-                        .add(Profile.Properties.LAST_NAME)
-                        .build();
-
-                // SimpleFacebook.getInstance().getProfile(new OnProfileListener() {
-                SimpleFacebook.getInstance().getProfile(properties, new OnProfileListener() {
+                SimpleFacebook.getInstance().getTaggedPlaces(new OnTaggedPlacesListener() {
 
                     @Override
                     public void onThinking() {
@@ -75,15 +67,41 @@ public class GetProfileFragment extends BaseFragment {
                     }
 
                     @Override
-                    public void onComplete(Profile response) {
+                    public void onComplete(List<PlaceTag> response) {
                         hideDialog();
-                        String str = Utils.toHtml(response);
-                        mResult.setText(Html.fromHtml(str));
+                        // make the result more readable.
+                        mAllPages += "<u>\u25B7\u25B7\u25B7 (paging) #" + getPageNum() + " \u25C1\u25C1\u25C1</u><br>";
+                        mAllPages += Utils.join(response.iterator(), "<br>", new Utils.Process<PlaceTag>() {
+                            @Override
+                            public String process(PlaceTag placeTag) {
+                                return "\u25CF " + placeTag.getPlace().getName() + " \u25CF";
+                            }
+                        });
+                        mAllPages += "<br>";
+                        mResult.setText(Html.fromHtml(mAllPages));
+
+                        // check if more pages exist
+                        if (hasNext()) {
+                            enableLoadMore(getCursor());
+                        } else {
+                            disableLoadMore();
+                        }
                     }
                 });
             }
         });
         return view;
+    }
+
+    private void enableLoadMore(final Cursor<List<PlaceTag>> cursor) {
+        mMore.setVisibility(View.VISIBLE);
+        mMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                mAllPages += "<br>";
+                cursor.next();
+            }
+        });
     }
 
     private void disableLoadMore() {

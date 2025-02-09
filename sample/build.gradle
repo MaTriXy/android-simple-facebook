@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 22
-  buildToolsVersion "22.0.1"
+  compileSdkVersion 23
+  buildToolsVersion "23.0.1"
 
   defaultConfig {
     applicationId "com.sromku.simple.fb.example"
-    minSdkVersion 14
-    targetSdkVersion 22
+    minSdkVersion 15
+    targetSdkVersion 23
     versionCode 1
     versionName "1.0"
   }
@@ -21,9 +21,15 @@ android {
   }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
 dependencies {
   compile project(':simple-fb')
   // compile project(':facebook')
   // compile 'com.sromku:simple-fb:4.0.+'
-  compile 'com.facebook.android:facebook-android-sdk:4.3.+'
+  // compile 'com.facebook.android:facebook-android-sdk:4.6.+'
 }

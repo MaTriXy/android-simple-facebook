@@ -79,16 +79,16 @@ public class Profile extends User {
     private String mEmail;
 
     @SerializedName(Properties.HOMETOWN)
-    private Hometown mHometown;
+    private IdName mHometown;
 
     @SerializedName(Properties.LOCATION)
-    private Location mLocation;
+    private IdName mCurrentLocation;
 
     @SerializedName(Properties.POLITICAL)
     private String mPolitical;
 
     @SerializedName(Properties.FAVORITE_ATHLETES)
-    private List<String> mFavoriteAthletess;
+    private List<String> mFavoriteAthletes;
 
     @SerializedName(Properties.FAVORITE_TEAMS)
     private List<String> mFavoriteTeams;
@@ -115,7 +115,7 @@ public class Profile extends User {
      * Returns the ID of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the ID of the user
      */
@@ -127,7 +127,7 @@ public class Profile extends User {
      * Returns the name of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the name of the user
      */
@@ -139,7 +139,7 @@ public class Profile extends User {
      * Returns the first name of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the first name of the user
      */
@@ -151,7 +151,7 @@ public class Profile extends User {
      * Returns the middle name of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the middle name of the user
      */
@@ -163,7 +163,7 @@ public class Profile extends User {
      * Returns the last name of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the last name of the user
      */
@@ -175,7 +175,7 @@ public class Profile extends User {
      * Returns the gender of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the gender of the user
      */
@@ -187,7 +187,7 @@ public class Profile extends User {
      * Return the ISO language code and ISO country code of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the ISO language code and ISO country code of the user
      */
@@ -211,7 +211,7 @@ public class Profile extends User {
      * Returns the Facebook URL of the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the Facebook URL of the user
      */
@@ -223,7 +223,7 @@ public class Profile extends User {
      * The user's age range. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the user's age range
      */
@@ -235,7 +235,7 @@ public class Profile extends User {
      * An anonymous, but unique identifier for the user. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return the an anonymous, but unique identifier for the user
      */
@@ -248,7 +248,7 @@ public class Profile extends User {
      * the app access token that is used to make the request. <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return <code>True</code> if installed, otherwise <code>False</code>
      */
@@ -260,7 +260,7 @@ public class Profile extends User {
      * Return the timezone of the user.<br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * <br>
      * <br>
@@ -280,7 +280,7 @@ public class Profile extends User {
      * value.<br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * <br>
      * <br>
@@ -295,7 +295,7 @@ public class Profile extends User {
      * The user's account verification status.<br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * <br>
      * <br>
@@ -340,7 +340,7 @@ public class Profile extends User {
      * {@link com.sromku.simple.fb.entities.Photo#getSource()} <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return The user's cover photo
      */
@@ -352,7 +352,7 @@ public class Profile extends User {
      * The user's currency settings <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return The user's currency settings
      */
@@ -377,7 +377,7 @@ public class Profile extends User {
      * <br>
      * <b> Permissions:</b> <br>
      * {@link com.sromku.simple.fb.Permission#EMAIL}
-     *
+     * To get the details about the place, use GetPage with this id.
      * @return the email of the user
      */
     public String getEmail() {
@@ -389,23 +389,24 @@ public class Profile extends User {
      * <br>
      * <b> Permissions:</b><br>
      * {@link com.sromku.simple.fb.Permission#USER_HOMETOWN}<br>
-     *
-     * @return The user's hometown
+     * <br>
+     * To get the details about the place, use GetPage with this id.
+     * @return The page id and name of the Place set as user's hometown
      */
-    public Hometown getHometown() {
+    public IdName getHometown() {
         return mHometown;
     }
 
     /**
-     * Returns the current city of the user. <br>
+     * The user's currently "living" location <br>
      * <br>
      * <b> Permissions:</b><br>
      * {@link com.sromku.simple.fb.Permission#USER_LOCATION}<br>
      *
-     * @return the current city of the user
+     * @return The page id and name of the Place set as user's current location
      */
-    public Location getLocation() {
-        return mLocation;
+    public IdName getLocation() {
+        return mCurrentLocation;
     }
 
     /**
@@ -429,7 +430,7 @@ public class Profile extends User {
      * @return The user's favorite athletes
      */
     public List<String> getFavoriteAthletes() {
-        return mFavoriteAthletess;
+        return mFavoriteAthletes;
     }
 
     /**
@@ -448,7 +449,7 @@ public class Profile extends User {
      * The user's profile pic <br>
      * <br>
      * <b> Permissions:</b><br>
-     * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+     * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
      *
      * @return The user's profile pic
      */
@@ -543,7 +544,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String ID = "id";
@@ -554,7 +555,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String NAME = "name";
@@ -565,7 +566,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String FIRST_NAME = "first_name";
@@ -576,7 +577,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String MIDDLE_NAME = "middle_name";
@@ -587,7 +588,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String LAST_NAME = "last_name";
@@ -598,7 +599,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String GENDER = "gender";
@@ -609,7 +610,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String LOCALE = "locale";
@@ -631,7 +632,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String LINK = "link";
@@ -642,7 +643,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String AGE_RANGE = "age_range";
@@ -653,7 +654,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String THIRD_PARTY_ID = "third_party_id";
@@ -665,7 +666,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String INSTALLED = "installed";
@@ -676,7 +677,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String TIMEZONE = "timezone";
@@ -690,7 +691,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String UPDATED_TIME = "updated_time";
@@ -701,7 +702,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String VERIFIED = "verified";
@@ -734,7 +735,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String COVER = "cover";
@@ -745,7 +746,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String CURRENCY = "currency";
@@ -756,7 +757,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String DEVICES = "devices";
@@ -837,7 +838,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String PAYMENT_PRICEPOINTS = "payment_pricepoints";
@@ -849,7 +850,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String PAYMENT_MOBILE_PRICEPOINTS = "payment_mobile_pricepoints";
@@ -882,7 +883,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String PICTURE = "picture";
@@ -928,7 +929,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String SECURITY_SETTINGS = "security_settings";
@@ -951,7 +952,7 @@ public class Profile extends User {
          * <br>
          *
          * <b>Permissions:</b><br>
-         * {@link com.sromku.simple.fb.Permission#PUBLIC_PROFILE}
+         * {@link com.sromku.simple.fb.Permission#USER_ABOUT_ME}
          *
          */
         public static final String VIDEO_UPLOAD_LIMITS = "video_upload_limits";
